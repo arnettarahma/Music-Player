@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         pauseButton.setEnabled(false);
     }
 
-    private void play(View view) {
+    public void play(View view) {
         Toast.makeText(getApplicationContext(), "Playing Music",
                 Toast.LENGTH_SHORT).show();
         mediaPlayer.start();
