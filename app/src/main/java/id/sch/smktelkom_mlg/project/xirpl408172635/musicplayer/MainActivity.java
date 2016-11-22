@@ -3,7 +3,10 @@ package id.sch.smktelkom_mlg.project.xirpl408172635.musicplayer;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageButton;
@@ -21,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
     private double startTime = 0;
     private double finalTime = 0;
     private Handler myHandler = new Handler();
+    private NavigationView navigationView;
+    private DrawerLayout drawerLayout;
+    private Toolbar toolbar;
     private int forwardTime = 5000;
     private int backwardTime = 5000;
     private SeekBar seekbar;
@@ -45,6 +51,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //ini untuk toolbar nya
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+
         songName = (TextView) findViewById(R.id.textView4);
         startTimeField = (TextView) findViewById(R.id.textView1);
         endTimeField = (TextView) findViewById(R.id.textView2);
@@ -55,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer = MediaPlayer.create(this, R.raw.aaa);
         seekbar.setClickable(false);
         pauseButton.setEnabled(false);
+
     }
 
     public void play(View view) {
